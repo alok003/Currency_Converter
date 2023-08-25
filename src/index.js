@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './Components/App';
+import CurrConverter from './Components/Converter';
+import Header from './Components/Header';
 import reportWebVitals from './reportWebVitals';
-
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Header />
+      <Routes>
+        <Route exact path='/' element={<App />}></Route>
+        <Route exact path='/currency' element={<CurrConverter />}></Route>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
